@@ -41,17 +41,17 @@ export class DashboardComponent implements OnInit {
     this.selectedStatus = event.target.value;
   }
 
-  statusVarHelper() {
+  /*statusVarHelper() {
     this.currentStatus = this.selectedStatus;
     this.todoitem.dueDate = this.currentStatus;
     return this.currentStatus;
-  }
+  }*/
 
-  dueDateGetter() {
+/*  dueDateGetter() {
     return this.todoitem.dueDate;
-  }
+  }*/
 
-  ngOnInit() {
+ngOnInit() {
   }
 
 }
