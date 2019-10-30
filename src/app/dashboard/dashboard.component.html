@@ -1,0 +1,29 @@
+<p>dashboard works!</p>
+<div>
+        <form>
+                <div class="field">
+                  <label>Add Task</label>
+                  <input name = "textDescription" id="textDescription" #newText> 
+                </div>
+              
+        </form>   
+        
+        <button (click)="addArticle(newText.value)">
+                Submit Task:   
+        </button>
+        
+        <div
+              *ngFor="let todoitem of todoitems()">
+              {{todoitem.text}}
+              <div>
+                    <form>
+                            <p>State</p>
+                              <input type="radio" name="due" value="Urgent"> Urgent<br>
+                              <input type="radio" name="due" value="Days"> Days<br>
+                              <input type="radio" name="due" value="Weeks"> Weeks<br>   
+                            </form>
+                </div>
+
+        </div>
+
+</div>
