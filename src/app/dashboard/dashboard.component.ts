@@ -22,14 +22,14 @@ export class DashboardComponent implements OnInit {
 
   constructor() {
     this.todoitem = [
-      new Todoitem('Backyard'),
-      new Todoitem('Leaves'),
-      new Todoitem('Bathroom')
+      new Todoitem('Backyard', 'Urgent'),
+      new Todoitem('Leaves', 'Days'),
+      new Todoitem('Bathroom', 'Days')
     ];
   }
 
   addItem(text: string, dueDate: string) {
-    this.todoitem.push(new Todoitem(text));
+    this.todoitem.push(new Todoitem(text, dueDate));
     console.log(this.todoitem);
   }
 
@@ -43,7 +43,12 @@ export class DashboardComponent implements OnInit {
 
   statusVarHelper() {
     this.currentStatus = this.selectedStatus;
+    this.todoitem.dueDate = this.currentStatus;
     return this.currentStatus;
+  }
+
+  dueDateGetter() {
+    return this.todoitem.dueDate;
   }
 
   ngOnInit() {

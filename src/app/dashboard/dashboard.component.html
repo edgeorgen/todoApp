@@ -4,11 +4,13 @@
                 <div class="field">
                   <label>Add Task</label>
                   <input name = "textDescription" id="textDescription" #newText>
+                  <label>Add Status</label>
+                  <input name = "dueDescription" id="dueDescription" #newDue>
                 </div>
               
         </form>   
         
-        <button (click)="add(newText.value)">
+        <button (click)="addItem(newText.value, newDue.value)">
                 Submit Task:   
         </button>
         
@@ -19,10 +21,12 @@
                     <form>
                             <div>State:</div>
                               <div *ngFor= "let status of statusArray; let i = index">
-                                <input type="radio" name="due + i" value="{{status}}" (change) = "radioChangeHandler($event)"> {{status}} <br>
+                                <input type="radio" name="due + i" value="{{status}}" (change) = "radioChangeHandler($event)"
+                                (change) = "statusVarHelper()"
+                                > {{status}} <br>
                             </div>
                     </form>
-                    <i>Task Status: {{statusVarHelper()}}</i>
+                    <i>Task Status: {{dueDateGetter()}}</i>
                 </div>
 
         </div>
