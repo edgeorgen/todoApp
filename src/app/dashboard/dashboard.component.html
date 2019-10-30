@@ -3,25 +3,26 @@
         <form>
                 <div class="field">
                   <label>Add Task</label>
-                  <input name = "textDescription" id="textDescription" #newText> 
+                  <input name = "textDescription" id="textDescription" #newText>
                 </div>
               
         </form>   
         
-        <button (click)="addArticle(newText.value)">
+        <button (click)="add(newText.value)">
                 Submit Task:   
         </button>
         
         <div
-              *ngFor="let todoitem of todoitems()">
+              *ngFor="let todoitem of todoitems(); let i = index">
               {{todoitem.text}}
               <div>
                     <form>
-                            <p>State</p>
-                              <input type="radio" name="due" value="Urgent"> Urgent<br>
-                              <input type="radio" name="due" value="Days"> Days<br>
-                              <input type="radio" name="due" value="Weeks"> Weeks<br>   
-                            </form>
+                            <div>State:</div>
+                              <div *ngFor= "let status of statusArray; let i = index">
+                                <input type="radio" name="due + i" value="{{status}}" (change) = "radioChangeHandler($event)"> {{status}} <br>
+                            </div>
+                    </form>
+                    <i>Task Status: {{statusVarHelper()}}</i>
                 </div>
 
         </div>

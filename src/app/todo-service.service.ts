@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable, Input } from '@angular/core';
+import { Todoitem } from './todo-item/todo-item.model';
 @Injectable({
   providedIn: 'root'
 })
 export class TodoServiceService {
-
-  constructor() { }
+  @Input() todoitem: Todoitem;
 }
